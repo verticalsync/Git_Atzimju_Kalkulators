@@ -69,7 +69,7 @@ public class Main {
 		}
 		
 		if (totalSvars != 100) {
-			System.out.println("\nVisu kritēriju svaram kopsumma ir jābūt 100%, ne vairak, ne mazāk!");
+			System.out.println("\nVisu kritēriju svaru kopsummai ir jābūt 100%, ne vairāk, ne mazāk!");
 			return;
 		}
 		
