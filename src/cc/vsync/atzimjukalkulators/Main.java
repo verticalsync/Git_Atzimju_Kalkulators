@@ -66,8 +66,11 @@ public class Main {
 		for (int i = 0; i < stSkaits; i++) {
 			System.out.printf("Ievadiet balles (1-10) studentam %s\n", studenti[i]);
 			for (int j = 0; j < krSkaits; j++) {
+				atzimes[i][j] = askInt(kriterijas[j] + " balles: ", 1, 10);
 			}
 		}
+		
+		
 		
 		sc.close();
 	}
