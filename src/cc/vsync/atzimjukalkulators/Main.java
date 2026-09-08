@@ -49,10 +49,18 @@ public class Main {
 		
 		String[] kriterijas = new String[krSkaits];
 		int[] kriterijasSvars = new int[krSkaits];
+		int totalSvars = 0;
 		
 		for (int i = 0; i < krSkaits; i++) {
 			kriterijas[i] = askString("Ievadiet " + (i+1) + ". kritēriju: ", 1, 100);
 			kriterijasSvars[i] = askInt("Ievadiet '" + kriterijas[i] + "' kritērijas svaru (5-100): ", 5, 100);
+			totalSvars += kriterijasSvars[i];
+		}
+		
+		if (totalSvars != 100) {
+			System.out.println("Visu kritēriju svaram kopsumma ir jābūt 100%, ne vairak, ne mazāk!");
+		} else {
+			// TODO: pabeigt kodu
 		}
 		
 		sc.close();
