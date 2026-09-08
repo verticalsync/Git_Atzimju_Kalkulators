@@ -49,6 +49,7 @@ public class Main {
 		
 		String[] kriterijas = new String[krSkaits];
 		int[] kriterijasSvars = new int[krSkaits];
+		int[][] atzimes = new int[stSkaits][krSkaits];
 		int totalSvars = 0;
 		
 		for (int i = 0; i < krSkaits; i++) {
@@ -59,8 +60,13 @@ public class Main {
 		
 		if (totalSvars != 100) {
 			System.out.println("Visu kritēriju svaram kopsumma ir jābūt 100%, ne vairak, ne mazāk!");
-		} else {
-			// TODO: pabeigt kodu
+			return;
+		}
+		
+		for (int i = 0; i < stSkaits; i++) {
+			System.out.printf("Ievadiet balles (1-10) studentam %s\n", studenti[i]);
+			for (int j = 0; j < krSkaits; j++) {
+			}
 		}
 		
 		sc.close();
