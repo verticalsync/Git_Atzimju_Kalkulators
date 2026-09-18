@@ -6,6 +6,19 @@ public class Main {
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		do{
+			System.out.println("Izvele:");
+			System.out.println("1 - Ievadit studentus");
+			System.out.println("2 - Ievadīt kriterijus");
+			System.out.println("3 - Ievadīt studentu atzīmes un redzēt vidējo");
+			System.out.println("4 - Beigt");
+			int izvele = Util.askInt(sc, "-> ", 1, 4);
+			switch (izvele) {
+				case 1:
+
+			}
+		}while (izvele != 4);
+
 		int stSkaits = Util.askInt(sc, "Ievadiet studentu skaitu: ", 1, 100);
 		int krSkaits = Util.askInt(sc, "Ievadiet kritēriju skaitu: ", 1, 20);
 		
