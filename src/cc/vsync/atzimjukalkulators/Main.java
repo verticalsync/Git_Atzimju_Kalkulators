@@ -64,8 +64,18 @@ public class Main {
 
 		Util.sortGrades(studenti, atzimes, videjasAtzimes, sortType == 1);
 
+		String rezultatuTeksts = "";
 		for (int i = 0; i < studenti.length; i++) {
-			System.out.printf("%s: %.2f\n", studenti[i], videjasAtzimes[i]);
+			rezultatuTeksts += String.format("%s: %.2f%n", studenti[i], videjasAtzimes[i]);
+		}
+
+		System.out.print(rezultatuTeksts);
+
+		int saveToFile = Util.askInt(sc, "Vai vēlaties rezultātus saglabāt failā? 1 - jā, 2 - nē\n-> ", 1, 2);
+		if (saveToFile == 1) {
+			String fileName = Util.askString(sc, "Ievadiet faila nosaukumu: ", 1, 100);
+			Util.WriteFile(fileName + ".txt", rezultatuTeksts);
+			System.out.println("Saglabāts!");
 		}
 
 	}
