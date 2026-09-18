@@ -39,6 +39,11 @@ public class Main {
 	}
 	
 	public static void calculateGrades() {
+		if (studenti == null || kriterijas == null) {
+			System.out.println("Jums ir vispirms jaievada studenti, un tad kriterijas.");
+			return;
+		}
+		
 		atzimes = new int[studenti.length][kriterijas.length];
 		
 		for (int i = 0; i < studenti.length; i++) {
