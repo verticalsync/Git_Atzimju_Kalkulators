@@ -8,6 +8,7 @@ public class Main {
 	static String[] kriterijas;
 	static int[] kriterijasSvars;
 	static int[][] atzimes;
+	static double[] videjasAtzimes;
 	static int totalSvars = 0;
 	
 	public static void inputStudents() {
@@ -45,6 +46,7 @@ public class Main {
 		}
 		
 		atzimes = new int[studenti.length][kriterijas.length];
+		videjasAtzimes = new double[studenti.length];
 		
 		for (int i = 0; i < studenti.length; i++) {
 			System.out.printf("Ievadiet balles (1-10) studentam %s\n", studenti[i]);
@@ -53,10 +55,29 @@ public class Main {
 			}
 		}
 		
-		System.out.println();
 		for (int i = 0; i < studenti.length; i++) {
-			System.out.printf("Studenta %s vidējā atzīme: %.2f\n", studenti[i], Util.videjaAtzime(atzimes[i], kriterijasSvars));
+			double vidAtzime = Util.videjaAtzime(atzimes[i], kriterijasSvars);
+			videjasAtzimes[i] = vidAtzime;
 		}
+
+		int sortType = Util.askInt(sc, "Rakstiet 1 priekš augošas atzīmes secības, 2 priekš dilstošas\n-> ", 1, 2);
+
+		Util.sortGrades(studenti, atzimes, videjasAtzimes, sortType == 1);
+
+		String rezultatuTeksts = "";
+		for (int i = 0; i < studenti.length; i++) {
+			rezultatuTeksts += String.format("%s: %.2f%n", studenti[i], videjasAtzimes[i]);
+		}
+
+		System.out.print(rezultatuTeksts);
+
+		int saveToFile = Util.askInt(sc, "Vai vēlaties rezultātus saglabāt failā? 1 - jā, 2 - nē\n-> ", 1, 2);
+		if (saveToFile == 1) {
+			String fileName = Util.askString(sc, "Ievadiet faila nosaukumu: ", 1, 100);
+			Util.WriteFile(fileName + ".txt", rezultatuTeksts);
+			System.out.println("Saglabāts!");
+		}
+
 	}
 	
 	public static void main(String[] args) {
